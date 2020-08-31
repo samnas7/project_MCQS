@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+}
+.content_container .item{
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    
+}
+.hidden{
+    display: none;
+}
+.content_container .item.panel_one{
+    display: block;
+}
+.content_container .wrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 80%;
+}
+
+.content_container .start_quiz{
+    border: 1px solid #cccccc;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    color: #9a9a9a;
+}
+.start_quiz.started{
+    background: #3f51b5;
+    color: #fff;
+}
+/* panels */
+.panel_two .wrapper,
+.panel_three .wrapper,
+.panel_four .wrapper,
+.panel_five .wrapper,
+.panel_six .wrapper,
+.panel_seven .wrapper,
+.panel_eight .wrapper,
+.panel_nine .wrapper,
+.panel_ten .wrapper,
+.panel_eleven .wrapper,
+.panel_tweleve .wrapper,
+.panel_thirteen .wrapper,
+.panel_fourteen .wrapper,
+.panel_fifteen .wrapper,
+.panel_sixteen .wrapper,
+.panel_seventeen .wrapper,
+.panel_eighteen .wrapper,
+.panel_nineteen .wrapper,
+.panel_twenty .wrapper,
+.panel_twenty_one .wrapper,
+.panel_twenty_two .wrapper
+{
+    display: none;
+}
+
+/* QUESTIONS */
+.options{
+    height: 200px;
+}
+.options div{
+    display: none;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #3f51b5;
+    transition: all 0.2s ease;
+}
+
+.options div.active{
+    color: #007fff;
+    background-color: #313131;
+}
+.next_question{
+    cursor: pointer;
+    
+}
+/* PROGRESS BAR AND ERROR */
+.error{
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    color: #f44336;
+    font-weight: bold;
+    text-align: center;
+    display:  none;
+}
+.progress{
+    position: fixed;
+    bottom: 0;
+    background: #d3d0d0;
+    width: 100%;
+    height: 5px; 
+    margin-bottom: 0px;
+}
+.bar{
+    width: 0;
+    height: 5px;
+    background: #00bcdd;
+}
+
