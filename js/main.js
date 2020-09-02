@@ -38,7 +38,7 @@ $(document).ready(function () {
 
       $(".start_quiz ").on("click", function () {
         currentDate = new Date();
-        twentyMinutesLater = new Date(currentDate.getTime() + 0.1 * 60 * 1000);
+        twentyMinutesLater = new Date(currentDate.getTime() + 15 * 60 * 1000);
 
         var x = setInterval(function () {
           var now = new Date().getTime();
