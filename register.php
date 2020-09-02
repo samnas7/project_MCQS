@@ -31,7 +31,7 @@
             </div>
         </nav>
         <div class="well">
-            <form action="" method="POST">
+            <form action="register.php" method="POST">
                 <div>
                     <label for="username">Username</label>
                     <input required type="text" name="username" id="">
@@ -48,16 +48,26 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require 'helper/Database.php';
+        $database = new Database();
+
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $data = [
-            'user_name' => trim($_POST['user_name']),
-            'password' => trim($_POST['password']),
-            'user_name_err' => '',
-            'password_err' => '',
+            'username' => trim($_POST['username']),
+            'pass' =>  md5(trim($_POST['password'])),
+            'username_err' => '',
+            'pass_err' => '',
 
         ];
         # code...
-        $sql = "INSERT INTO profiles VALUES (NULL,'" . $data['user_name'] . "', '" . $data['password'] . "',NULL, NULL)";
+        $sql = "INSERT INTO profiles VALUES (NULL,'" . $data['username'] . "', '" . $data['pass'] . "',NULL, NULL)";
+        if ($database->Insert($sql)) {
+            echo "<script>alert('Registered successfully')</script>";
+            $url = "index.php";
+            header('Location: ' . $url, true);
+            die();
+        } else {
+            echo "<script>alert('Registered successfully')</script>";
+        }
     }
     ?>
 

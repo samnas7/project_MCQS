@@ -23,12 +23,81 @@ $database = new Database();
 
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <script src="js/main.js"></script>
+    <style>
+        #timer {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #timer>div {
+            padding: 10px;
+            border-radius: 3px;
+            background: #00BF96;
+            display: inline-block;
+        }
+
+        #timer div>span {
+            padding: 15px;
+            border-radius: 3px;
+            background: #00816A;
+            display: inline-block;
+        }
+
+        smalltext {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        /*JavaScript Document*/
+        /* $(document).ready(function() {
+            $(".start_quiz ").on("click", function() {
+                var currentDate = new Date();
+                var twentyMinutesLater = new Date(currentDate.getTime() + (20 * 60 * 1000));
+                var x = setInterval(function() {
+
+
+
+                    var now = new Date().getTime();
+                    var t = twentyMinutesLater - now;
+
+                    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+                    //console.log(twentyMinutesLater, minutes, seconds)
+                    document.getElementById("minute").innerHTML = minutes;
+                    document.getElementById("second").innerHTML = seconds;
+                    if (t < 0) {
+                        clearInterval(x);
+                        document.getElementById("demo").innerHTML = "TIME UP";
+                        document.getElementById("day").innerHTML = '0';
+                        document.getElementById("hour").innerHTML = '0';
+                        document.getElementById("minute").innerHTML = '0';
+                        document.getElementById("second").innerHTML = '0';
+                    }
+                }, 1000);
+            });
+        }); */
+    </script>
 </head>
 
 <body>
     <div class="content_container">
         <!-- <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4"> -->
+        <div id="timer">
+            <div>
+                <span class="minutes" id="minute"></span>
+                <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+                <span class="seconds" id="second"></span>
+                <div class="smalltext">Seconds</div>
+            </div>
 
+        </div>
         <!-- PANEL ONE -->
         <div class="item panel_one " data-panel="0">
             <div class="wrapper">
@@ -40,25 +109,27 @@ $database = new Database();
 
         </div>
 
-        <div class="item panel_two hidden" data-panel="1">
+        <!-- <div class="item panel_two hidden" data-panel="1">
             <div class="wrapper">
                 <div>
+                    <div class="options">
+                        <div>A. Option 1</div>
+                        <div>B. Option 2</div>
+                        <div>C. Option 3</div>
+                        <div>D. Option 4</div>
+                    </div>
                     <select name="category" id="category">
                         <option value=""></option>
 
                     </select>
-                    <select name="category" id="category">
-                        <option value=""></option>
-
-                    </select>
-
+                    <div class="next_question" data-next="1"> Next question</div>
                 </div>
 
             </div>
 
-        </div>
+        </div> -->
         <?php
-        for ($i = 2; $i <= 11; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $panel = $i + 1;
             echo '
                 <div class="item panel_' . $i . ' hidden" data-panel="' . $i . '">

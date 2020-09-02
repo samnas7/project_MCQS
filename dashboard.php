@@ -1,6 +1,8 @@
 <?php
 if (true) {
     # code...
+    require 'helper/Database.php';
+    $database = new Database();
 
 
 ?>
@@ -40,6 +42,7 @@ if (true) {
                         <table>
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Questions</th>
                                     <th> Correct Answers</th>
                                     <th>Dummy Answers 1 </th>
@@ -51,15 +54,42 @@ if (true) {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+
+                                ?>
+
+                                <?php
+                                $sql = "SELECT * FROM questions";
+                                $results = $database->FetchAll($sql);
+
+                                foreach ($results as $result) {
+                                    $correct = htmlentities($result->correct);
+                                    $incorrect_1 = htmlentities($result->incorrect_1);
+                                    $incorrect_2 = htmlentities($result->incorrect_2);
+                                    $incorrect_3 = htmlentities($result->incorrect_3);
+                                    $question = htmlentities($result->question);
+                                    #$story_id = 8; #htmlentities($result->$story_id);
+                                    $id = htmlentities($result->id);
+                                    echo '
+                                    <tr >
+                                    <td>' . $id . '</td>
+                                    <td>' . $question . '</td>
+                                    <td>' . $correct . '</td>
+                                    <td>' . $incorrect_1 . '</td>
+                                    <td>' . $incorrect_2 . '</td>
+                                    <td>' . $incorrect_3 . '</td>
+                                    
+                                    <td> <a href="question.php" class="btn btn-view">View</a> </td>
+                                    <td> <a href="question.php" class="btn btn-view">Edit</a> </td>
+                                    <td> <a href="question.php" class="btn btn-delete">Delete</a></td>
+                                    </tr>';
+                                }
+                                ?>
+                                <?php
+
+                                ?>
                                 <tr>
-                                    <td>John mary@example. john@example.com july@example.com</td>
-                                    <td>Doe</td>
-                                    <td>Mary</td>
-                                    <td>Moe</td>
-                                    <td>Moer</td>
-                                    <td> <a href="#" class="btn btn-view">View</a> </td>
-                                    <td> <a href="#" class="btn btn-view">Edit</a> </td>
-                                    <td> <a href="#" class="btn btn-delete">Delete</a></td>
+
                                 </tr>
                             </tbody>
                         </table>
